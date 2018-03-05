@@ -18,6 +18,8 @@ var MessageComponent = (function () {
     }
     MessageComponent.prototype.close = function () {
         // Close the popup.
+        this.router.navigate([{ outlets: { popup: null } }]);
+        this.messageService.isDisplayed = false;
     };
     return MessageComponent;
 }());
