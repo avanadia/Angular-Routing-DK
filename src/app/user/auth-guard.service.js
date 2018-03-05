@@ -19,6 +19,9 @@ var AuthGuard = (function () {
     AuthGuard.prototype.canActivate = function (route, state) {
         return this.checkLoggedIn(state.url);
     };
+    AuthGuard.prototype.canLoad = function (route) {
+        return this.checkLoggedIn(route.path);
+    };
     AuthGuard.prototype.checkLoggedIn = function (url) {
         if (this.authService.isLoggedIn()) {
             return true;
