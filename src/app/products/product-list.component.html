@@ -46,21 +46,16 @@
                                  [style.width.px]="imageWidth" 
                                  [style.margin.px]="imageMargin">
                         </td>
-                        <td><a>
-                            {{product.productName}}
-                            </a>
-                        </td>
+                        <td><a [routerLink]="['/products', product.id]">{{product.productName}}</a></td>
                         <td>{{ product.productCode | lowercase }}</td>
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:"USD":true:"1.2-2" }}</td>
                         <td>
                             <ai-star [rating]="product.starRating">
                             </ai-star>
-                       </td>
-                       <td>
-                            <a class="btn btn-primary">
-                                Edit
-                            </a>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/products', product.id, 'edit']" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
                 </tbody>

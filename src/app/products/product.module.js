@@ -23,7 +23,9 @@ ProductModule = __decorate([
         imports: [
             shared_module_1.SharedModule,
             router_1.RouterModule.forChild([
-                { path: 'products', component: product_list_component_1.ProductListComponent }
+                { path: 'products', component: product_list_component_1.ProductListComponent },
+                { path: 'products/:id', component: product_detail_component_1.ProductDetailComponent },
+                { path: 'products/:id/edit', component: product_edit_component_1.ProductEditComponent }
             ])
         ],
         declarations: [
