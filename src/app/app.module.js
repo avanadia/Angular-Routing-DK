@@ -29,7 +29,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(product_data_1.ProductData, { delay: 100 }),
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(product_data_1.ProductData, { delay: 400 }),
             product_module_1.ProductModule,
             user_module_1.UserModule,
             message_module_1.MessageModule,

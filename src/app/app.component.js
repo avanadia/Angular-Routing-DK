@@ -13,10 +13,25 @@ var router_1 = require("@angular/router");
 var auth_service_1 = require("./user/auth.service");
 var AppComponent = (function () {
     function AppComponent(authService, router) {
+        var _this = this;
         this.authService = authService;
         this.router = router;
         this.pageTitle = 'Acme Product Management';
+        this.loading = true;
+        router.events.subscribe(function (routerEvent) {
+            _this.checkRouterEvent(routerEvent);
+        });
     }
+    AppComponent.prototype.checkRouterEvent = function (event) {
+        if (event instanceof router_1.NavigationStart) {
+            this.loading = true;
+        }
+        if (event instanceof router_1.NavigationEnd ||
+            event instanceof router_1.NavigationCancel ||
+            event instanceof router_1.NavigationError) {
+            this.loading = false;
+        }
+    };
     AppComponent.prototype.logOut = function () {
         this.authService.logout();
         this.router.navigate(['/welcome']);
