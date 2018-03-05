@@ -74,9 +74,8 @@ export class ProductEditComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.route.params.subscribe(params => {
-            let id = +params['id'];
-            this.getProduct(id);
+        this.route.data.subscribe(data => {
+            this.onProductRetrieved(data['product']);
         });
     }
 }
