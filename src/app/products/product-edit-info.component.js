@@ -19,6 +19,9 @@ var ProductEditInfoComponent = (function () {
         var _this = this;
         this.route.parent.data.subscribe(function (data) {
             _this.product = data['product'];
+            if (_this.productForm) {
+                _this.productForm.reset();
+            }
         });
     };
     return ProductEditInfoComponent;
