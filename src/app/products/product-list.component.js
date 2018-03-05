@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var product_service_1 = require("./product.service");
 var ProductListComponent = (function () {
-    function ProductListComponent(productService) {
+    function ProductListComponent(productService, route) {
         this.productService = productService;
+        this.route = route;
         this.pageTitle = 'Product List';
         this.imageWidth = 50;
         this.imageMargin = 2;
@@ -23,6 +25,9 @@ var ProductListComponent = (function () {
     };
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // || empty to handle case when filterBy is undefined
+        this.listFilter = this.route.snapshot.queryParams['filterBy'] || '';
+        this.showImage = this.route.snapshot.queryParams['showImage'] === 'true';
         this.productService.getProducts()
             .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
     };
@@ -33,7 +38,7 @@ ProductListComponent = __decorate([
         templateUrl: './app/products/product-list.component.html',
         styleUrls: ['./app/products/product-list.component.css']
     }),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
+    __metadata("design:paramtypes", [product_service_1.ProductService, router_1.ActivatedRoute])
 ], ProductListComponent);
 exports.ProductListComponent = ProductListComponent;
 //# sourceMappingURL=product-list.component.js.map
