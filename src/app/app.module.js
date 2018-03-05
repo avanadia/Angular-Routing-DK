@@ -15,7 +15,6 @@ var app_component_1 = require("./app.component");
 var welcome_component_1 = require("./home/welcome.component");
 var page_not_found_component_1 = require("./page-not-found.component");
 /* Feature Modules */
-var product_module_1 = require("./products/product.module");
 var user_module_1 = require("./user/user.module");
 var message_module_1 = require("./messages/message.module");
 var app_routing_module_1 = require("./app-routing.module");
@@ -30,7 +29,6 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
             angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(product_data_1.ProductData, { delay: 400 }),
-            product_module_1.ProductModule,
             user_module_1.UserModule,
             message_module_1.MessageModule,
             app_routing_module_1.AppRoutingModule

@@ -19,8 +19,9 @@ AppRoutingModule = __decorate([
         imports: [
             router_1.RouterModule.forRoot([
                 { path: 'welcome', component: welcome_component_1.WelcomeComponent },
+                { path: 'products', loadChildren: 'app/products/product.module#ProductModule' },
                 { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-                { path: '**', component: page_not_found_component_1.PageNotFoundComponent }
+                { path: '**', component: page_not_found_component_1.PageNotFoundComponent },
             ], { enableTracing: false })
         ],
         exports: [router_1.RouterModule]
